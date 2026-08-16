@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    color-scheme: light;
+  }
+  
+  html.dark {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-[#f8fafc] text-slate-800 font-sans antialiased text-[14px] transition-colors duration-150;
+  }
+
+  .dark body,
+  html.dark body {
+    @apply bg-slate-950 text-slate-100;
+  }
+
+  /* Custom Scrollbar cho cả Light và Dark Mode */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+
+  html.dark ::-webkit-scrollbar-thumb {
+    background: #334155;
+  }
+
+  html.dark ::-webkit-scrollbar-thumb:hover {
+    background: #475569;
+  }
+}
+
+/* Flat System UI & Minimalist components */
+@layer components {
+  .btn-base {
+    @apply inline-flex items-center justify-center gap-2 px-3.5 py-2 text-xs font-medium rounded-lg transition-colors duration-150 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  
+  .btn-primary {
+    @apply btn-base bg-brand-primary text-white hover:bg-brand-hover active:bg-brand-dark shadow-sm;
+  }
+
+  .btn-secondary {
+    @apply btn-base bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 hover:border-slate-300 active:bg-slate-100 dark:bg-slate-900 dark:text-slate-200 dark:border-slate-700 dark:hover:bg-slate-800 dark:hover:border-slate-600;
+  }
+
+  .btn-ghost {
+    @apply btn-base bg-transparent text-slate-600 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-slate-100;
+  }
+
+  .card-flat {
+    @apply bg-white border border-slate-200 rounded-xl p-4 transition-all duration-150 hover:border-slate-300 hover:shadow-[0_2px_8px_rgba(0,0,0,0.04)] dark:bg-slate-900 dark:border-slate-800 dark:hover:border-slate-700;
+  }
+
+  .input-flat {
+    @apply w-full px-3 py-2 bg-white border border-slate-200 rounded-lg text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all dark:bg-slate-900 dark:border-slate-700 dark:text-slate-100 dark:placeholder-slate-500;
+  }
+
+  .chip-tag {
+    @apply inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-slate-100 text-slate-600 border border-slate-200/60 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700;
+  }
+}
+

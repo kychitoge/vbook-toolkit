@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/icon-64.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Primary Meta Tags -->
+    <title>vBook Toolkit — Bộ công cụ tiện ích cộng đồng vBook</title>
+    <meta name="title" content="vBook Toolkit — Bộ công cụ tiện ích cộng đồng vBook" />
+    <meta name="description" content="Tổng hợp các công cụ, tiện ích dành cho người dùng và cộng đồng dịch giả vBook: Nâng cấp Premium, Tên nhiều màu, Tải app APK/IPA, Rule Tester." />
+    <meta name="keywords" content="vbook, vbook toolkit, quicktranslate, vbook rule tester, name color, gradient nickname, download vbook apk ipa, donate vbook" />
+    <meta name="author" content="kychi, duongden, ngatngay, vBook Community" />
+    <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#020617" media="(prefers-color-scheme: dark)" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="vBook Toolkit — Bộ công cụ tiện ích cộng đồng vBook" />
+    <meta property="og:description" content="Tổng hợp các công cụ, tiện ích dành cho người dùng và cộng đồng dịch giả vBook." />
+    <meta property="og:image" content="/icon-64.png" />
+    <meta property="og:site_name" content="vBook Toolkit" />
+    <meta property="og:locale" content="vi_VN" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:title" content="vBook Toolkit — Bộ công cụ tiện ích cộng đồng vBook" />
+    <meta property="twitter:description" content="Tổng hợp các công cụ, tiện ích dành cho người dùng và cộng đồng dịch giả vBook." />
+    <meta property="twitter:image" content="/icon-64.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <!-- Early Theme Detection Script (Anti-Flash) -->
+    <script>
+      (function() {
+        try {
+          var saved = localStorage.getItem('vbook_theme');
+          var isDark = saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          if (isDark) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body class="bg-[#f8fafc] dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-screen antialiased selection:bg-brand-primary selection:text-white transition-colors duration-150">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

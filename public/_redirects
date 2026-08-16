@@ -1,0 +1,6 @@
+# Cloudflare Pages Redirects
+/donate      /premium                                       302
+/hdsd        https://vbookapp.gitbook.io/huong-dan-su-dung  302
+/extension   https://www.vbookext.me                        302
+/qt          https://qt.vbookext.me/collections             302
+/*           /index.html                                    200
