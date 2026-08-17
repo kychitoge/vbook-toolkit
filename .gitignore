@@ -63,3 +63,8 @@ vbook-rule-tester-0.3.2/
 
 # Raw docs
 idea-v1.md
+idea-font-preview.md
+
+# Raw assets uploaded to Cloudflare R2
+font/
+background/

@@ -6,6 +6,7 @@ import { PremiumPage } from './pages/Premium';
 import { NameColorPage } from './pages/NameColor';
 import { DownloadPage } from './pages/Download';
 import { RuleTesterPage } from './pages/RuleTester';
+import { FontPreviewPage } from './pages/FontPreview';
 import { RedirectHandler } from './pages/RedirectHandler';
 
 export const App: React.FC = () => {
@@ -22,6 +23,7 @@ export const App: React.FC = () => {
           <Route path="/name-color" element={<NameColorPage />} />
           <Route path="/download" element={<DownloadPage />} />
           <Route path="/rule-tester" element={<RuleTesterPage />} />
+          <Route path="/font-preview" element={<FontPreviewPage />} />
 
           {/* Instant redirects for external services */}
           <Route

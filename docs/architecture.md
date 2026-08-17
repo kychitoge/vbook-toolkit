@@ -21,10 +21,16 @@ graph TD
         Layout --> NameColor[Tên Nhiều Màu Live Preview]
         Layout --> Download[Tải Ứng Dụng vBook]
         Layout --> RuleTester[vBook Rule Tester Web]
+        Layout --> FontPreview[Thử Font & Nền Live Sandbox]
         
         Layout -. Instant Redirect .-> GitBook[HDSD GitBook /hdsd]
         Layout -. Instant Redirect .-> VBookExt[Nguồn Extension /extension]
         Layout -. Instant Redirect .-> QTColl[Data QT Collection /qt]
+    end
+
+    subgraph CDN_Asset_Pipeline [Hạ tầng Phân Phối Asset R2]
+        R2[Cloudflare R2 Bucket] --> CustomDomain[toolkit-cdn.vbookext.me]
+        CustomDomain --> FontPreview
     end
 
     subgraph Core_Engines [Core Engine Độc Lập]

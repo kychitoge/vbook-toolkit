@@ -12,6 +12,7 @@ import {
   Code2,
   Palette,
   Boxes,
+  Type,
 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
@@ -53,6 +54,18 @@ export const Header: React.FC = () => {
           >
             <Download className="w-3.5 h-3.5" />
             <span>Tải App</span>
+          </Link>
+
+          <Link
+            to="/font-preview"
+            className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-md transition-colors ${
+              location.pathname === '/font-preview'
+                ? 'bg-slate-100 text-slate-900 font-semibold border border-slate-200 dark:bg-slate-800 dark:text-slate-100 dark:border-slate-700'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50 dark:text-slate-400 dark:hover:text-slate-100 dark:hover:bg-slate-900'
+            }`}
+          >
+            <Type className="w-3.5 h-3.5 text-sky-500" />
+            <span>Thử Font & Nền</span>
           </Link>
 
           <Link
@@ -174,6 +187,15 @@ export const Header: React.FC = () => {
             >
               <Download className="w-4 h-4 text-brand-primary" />
               <span>Tải App vBook</span>
+            </Link>
+
+            <Link
+              to="/font-preview"
+              onClick={closeMenu}
+              className="p-2 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center gap-2 text-slate-800 dark:text-slate-200"
+            >
+              <Type className="w-4 h-4 text-sky-500" />
+              <span>Thử Font & Nền</span>
             </Link>
 
             <Link

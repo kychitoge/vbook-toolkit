@@ -8,6 +8,7 @@ import {
   Code2,
   Boxes,
   Layers,
+  Type,
   ExternalLink,
   ChevronRight,
   Sparkles,
@@ -25,6 +26,7 @@ const iconMap = {
   Code2,
   Boxes,
   Layers,
+  Type,
 };
 
 export const Home: React.FC = () => {

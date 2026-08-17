@@ -11,4 +11,7 @@
 | **EPIC 5** | **Module Download Hub (`/download`)** | Cắt giảm 70% rác, thiết kế Pill Buttons cho Android APK (Beta & Legacy), iOS IPA, Telegram Tracker. | Done ✅ | P1 |
 | **EPIC 6** | **vBook Rule Tester Web (`/rule-tester`)** | Core Engine TS, soát lỗi cú pháp, thử nghiệm dịch, nạp file lớn 16k dòng, xuất file `.txt`, link Data QT. | Done ✅ | P0 |
 | **EPIC 7** | **Theme Engine & Light/Dark Polish** | Root ThemeProvider, đồng bộ OS preference/tabs, custom scrollbars, hoàn thiện contrast và đồng bộ tài liệu. | Done ✅ | P0 |
+| **EPIC 8** | **Font & Background Sandbox (`/font-preview`)** | Trình thử nghiệm trực quan 93 font chữ & 72 hình nền, tích hợp Cloudflare R2 CDN (`toolkit-cdn.vbookext.me`), tùy biến màu chữ/màu nền, nạp font/ảnh máy cục bộ, tải 1-click. | Done ✅ | P0 |
+| **EPIC 9** | **Download Page Landing Overhaul (`/download`)** | Đồng bộ giao diện Landing Page vBook chính thức (`vbookapp.com`), cấu trúc rõ Bản Beta mới nhất (APK/IPA) & Bản cũ ổn định (Legacy APK), Telegram Tracker, Discord, vbookapp.com. | Done ✅ | P1 |
+| **EPIC 10** | **Rule Tester UX Improvements (`/rule-tester`)** | Bổ sung nút thao tác nhanh "Xóa tất cả lỗi" (Clear All Errors) và tối ưu hóa trải nghiệm thao tác quy tắc lớn. | Done ✅ | P1 |
 

@@ -8,7 +8,7 @@ export interface ToolItem {
   author: string;
   route: string;
   category: ToolCategory;
-  iconName: 'HeartHandshake' | 'Palette' | 'BookOpen' | 'Download' | 'Code2' | 'Boxes' | 'Layers';
+  iconName: 'HeartHandshake' | 'Palette' | 'BookOpen' | 'Download' | 'Code2' | 'Boxes' | 'Layers' | 'Type';
   isExternal?: boolean;
   externalUrl?: string;
 }
@@ -81,6 +81,16 @@ export const TOOLS_CONFIG: ToolItem[] = [
   },
 
   // 3. CÔNG CỤ KHÁC
+  {
+    id: 'font-preview',
+    title: 'Thử Font & Nền',
+    tag: 'Xem trước',
+    category: 'other_tools',
+    author: 'duongden',
+    description: 'Thử nghiệm trực quan font chữ và hình nền đọc truyện trước khi cài đặt.',
+    route: '/font-preview',
+    iconName: 'Type',
+  },
   {
     id: 'rule-tester',
     title: 'vBook Rule Tester',

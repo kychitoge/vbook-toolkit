@@ -197,6 +197,27 @@ export const RuleTesterPage: React.FC = () => {
     }
   };
 
+  // Xóa tất cả các rule bị lỗi hoặc cảnh báo khỏi danh sách
+  const handleDeleteAllIssues = () => {
+    if (!validationSummary || validationSummary.issues.length === 0) {
+      showToast('Không có lỗi hoặc cảnh báo nào để xóa', 'info');
+      return;
+    }
+
+    const issueLineIndices = new Set(
+      validationSummary.issues.map((i) => i.line)
+    );
+
+    const lines = ruleSource.split(/\r?\n/);
+    const newLines = lines.filter((_, idx) => !issueLineIndices.has(idx));
+    const newSource = newLines.join('\n');
+
+    setRuleSource(newSource);
+    const updatedSummary = validateAllRules(newSource);
+    setValidationSummary(updatedSummary);
+    showToast(`Đã xóa ${issueLineIndices.size} rule khỏi danh sách`, 'success');
+  };
+
   // Sao chép thông tin
   const handleCopy = (text: string, id: string, label: string) => {
     navigator.clipboard.writeText(text);
@@ -522,11 +543,11 @@ export const RuleTesterPage: React.FC = () => {
             <div className={activeTab === 'validate' ? 'block space-y-2.5' : 'hidden'}>
               {validationSummary ? (
                 <div className="space-y-2.5 max-h-[380px] overflow-y-auto pr-1">
-                  <div className="p-2.5 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs flex items-center justify-between">
-                    <span className="font-medium text-slate-700 dark:text-slate-300">
-                      {validationSummary.validCount} rule hợp lệ
-                    </span>
-                    <div className="flex items-center gap-2 text-[11px]">
+                  <div className="p-2.5 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs flex flex-wrap items-center justify-between gap-2">
+                    <div className="flex items-center gap-2">
+                      <span className="font-medium text-slate-700 dark:text-slate-300">
+                        {validationSummary.validCount} rule hợp lệ
+                      </span>
                       {validationSummary.hardCount > 0 && (
                         <span className="font-bold text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/60 px-1.5 py-0.2 rounded border border-rose-200 dark:border-rose-800">
                           {validationSummary.hardCount} lỗi
@@ -538,6 +559,18 @@ export const RuleTesterPage: React.FC = () => {
                         </span>
                       )}
                     </div>
+
+                    {validationSummary.issues.length > 0 && (
+                      <button
+                        type="button"
+                        onClick={handleDeleteAllIssues}
+                        className="btn-secondary py-1 px-2 text-[11px] font-semibold text-rose-600 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/60 border border-rose-200 dark:border-rose-800/80 flex items-center gap-1"
+                        title="Tự động loại bỏ tất cả các rule bị lỗi hoặc cảnh báo khỏi danh sách"
+                      >
+                        <Trash2 className="w-3 h-3" />
+                        <span>Xóa tất cả lỗi ({validationSummary.issues.length})</span>
+                      </button>
+                    )}
                   </div>
 
                   {validationSummary.issues.length > 0 ? (
