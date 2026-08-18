@@ -22,7 +22,7 @@ Dự án được xây dựng theo phong cách giao diện phẳng tối giản 
 | 2 | **Tên Nhiều Màu** | `/name-color` | `ngatngay` | Trình tạo hiệu ứng chuyển màu Gradient cho nickname, hỗ trợ xem trước nền sáng/tối và sinh mã chuyển khoản gói Màu (50k) hoặc Combo (100k). |
 | 3 | **Tải Ứng Dụng vBook** | `/download` | vBook Team | Landing Page giới thiệu vBook, hỗ trợ tải Android APK (Bản Beta & Bản cũ ổn định), iOS IPA, Telegram Tracker và Discord. |
 | 4 | **vBook Rule Tester** | `/rule-tester` | `duongden` | Công cụ web kiểm tra và soát lỗi cú pháp quy tắc QuickTranslate, thử nghiệm dịch trực tiếp, hỗ trợ Drag & Drop file lớn và Xuất file `.txt`. |
-| 5 | **Thử Font & Nền** | `/font-preview` | `duongden` | Không gian thử nghiệm Live Sandbox cho 93 font chữ và 72 hình nền đọc truyện, kết nối CDN Cloudflare R2, nạp font/ảnh cá nhân. |
+| 5 | **Thử Font & Nền** | `/font-preview` | `duongden` | Không gian thử nghiệm Live Sandbox cho 94 font chữ (kèm font hệ thống) và 96 hình nền đọc truyện, kết nối CDN Cloudflare R2, nạp font/ảnh cá nhân. |
 | 6 | **Hướng Dẫn Sử Dụng** | `/hdsd` | `duongden`, `ngatngay` | Redirect tức thì (302) sang GitBook Hướng dẫn sử dụng vBook chính thức. |
 | 7 | **Nguồn Mở Rộng** | `/extension` | `kychi` | Redirect tức thì (302) sang kho Nguồn mở rộng `vbookext.me`. |
 | 8 | **Data QT Collection** | `/qt` | `kychi` | Redirect tức thì (302) sang kho bộ sưu tập dữ liệu QuickTranslate `qt.vbookext.me/collections`. |

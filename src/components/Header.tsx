@@ -133,29 +133,23 @@ export const Header: React.FC = () => {
         </nav>
 
         {/* Thanh công cụ rút gọn trên Mobile (< md) */}
-        <div className="flex md:hidden items-center gap-1">
-          <Link
-            to="/download"
+        <div className="flex md:hidden items-center gap-1 sm:gap-1.5 flex-shrink-0">
+          <a
+            href="https://vbookapp.gitbook.io/huong-dan-su-dung"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={closeMenu}
-            className="p-1.5 text-xs text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white rounded-lg flex items-center gap-1"
+            className="flex items-center gap-1 px-2.5 py-1 text-xs font-semibold text-sky-700 dark:text-sky-300 bg-sky-50 dark:bg-sky-950/60 border border-sky-200/80 dark:border-sky-800/80 rounded-full whitespace-nowrap shadow-xs hover:bg-sky-100 dark:hover:bg-sky-900/60 transition-colors"
           >
-            <Download className="w-4 h-4 text-brand-primary" />
-            <span className="font-semibold text-[11px]">Tải App</span>
-          </Link>
-
-          <Link
-            to="/premium"
-            onClick={closeMenu}
-            className="p-1.5 text-xs text-amber-700 dark:text-amber-400 rounded-lg flex items-center gap-1"
-          >
-            <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-            <span className="font-semibold text-[11px]">Premium</span>
-          </Link>
+            <BookOpen className="w-3.5 h-3.5 text-sky-500 flex-shrink-0" />
+            <span className="text-[11.5px]">Hướng dẫn</span>
+          </a>
 
           <button
             type="button"
             onClick={toggleTheme}
-            className="p-1.5 rounded-lg text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100 transition-colors"
+            className="p-1.5 rounded-lg text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-900 transition-colors"
+            title={theme === 'dark' ? 'Chuyển sang giao diện Sáng' : 'Chuyển sang giao diện Tối'}
             aria-label="Toggle theme"
           >
             {theme === 'dark' ? (
@@ -168,7 +162,7 @@ export const Header: React.FC = () => {
           <button
             type="button"
             onClick={() => setMobileMenuOpen((prev) => !prev)}
-            className="p-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900 transition-colors ml-0.5"
+            className="p-1.5 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900 transition-colors"
             aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -178,50 +172,50 @@ export const Header: React.FC = () => {
 
       {/* Slide-down Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-slate-200 dark:border-slate-800 bg-white/98 dark:bg-slate-950/98 px-4 py-3 space-y-2 shadow-lg transition-all">
+        <div className="md:hidden border-t border-slate-200 dark:border-slate-800 bg-white/98 dark:bg-slate-950/98 px-4 py-3 space-y-2.5 shadow-lg transition-all">
           <div className="grid grid-cols-2 gap-2 text-xs font-medium">
             <Link
               to="/download"
               onClick={closeMenu}
-              className="p-2 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center gap-2 text-slate-800 dark:text-slate-200"
+              className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center gap-2 text-slate-800 dark:text-slate-200 hover:border-brand-primary/50 transition-colors"
             >
-              <Download className="w-4 h-4 text-brand-primary" />
-              <span>Tải App vBook</span>
+              <Download className="w-4 h-4 text-brand-primary flex-shrink-0" />
+              <span className="truncate">Tải App</span>
             </Link>
 
             <Link
               to="/font-preview"
               onClick={closeMenu}
-              className="p-2 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center gap-2 text-slate-800 dark:text-slate-200"
+              className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center gap-2 text-slate-800 dark:text-slate-200 hover:border-brand-primary/50 transition-colors"
             >
-              <Type className="w-4 h-4 text-sky-500" />
-              <span>Thử Font & Nền</span>
+              <Type className="w-4 h-4 text-sky-500 flex-shrink-0" />
+              <span className="truncate">Thử Font & Nền</span>
             </Link>
 
             <Link
               to="/premium"
               onClick={closeMenu}
-              className="p-2 rounded-lg bg-amber-50/60 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/50 flex items-center gap-2 text-amber-950 dark:text-amber-200"
+              className="p-2.5 rounded-xl bg-amber-50/60 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/50 flex items-center gap-2 text-amber-950 dark:text-amber-200 hover:border-amber-400 transition-colors"
             >
-              <Sparkles className="w-4 h-4 text-amber-500" />
-              <span>Nâng Premium</span>
+              <Sparkles className="w-4 h-4 text-amber-500 flex-shrink-0" />
+              <span className="truncate">Premium</span>
             </Link>
 
             <Link
               to="/name-color"
               onClick={closeMenu}
-              className="p-2 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center gap-2 text-slate-800 dark:text-slate-200"
+              className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center gap-2 text-slate-800 dark:text-slate-200 hover:border-brand-primary/50 transition-colors"
             >
-              <Palette className="w-4 h-4 text-purple-500" />
-              <span>Tên Nhiều Màu</span>
+              <Palette className="w-4 h-4 text-purple-500 flex-shrink-0" />
+              <span className="truncate">Tên Nhiều Màu</span>
             </Link>
 
             <Link
               to="/rule-tester"
               onClick={closeMenu}
-              className="p-2 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center gap-2 text-slate-800 dark:text-slate-200"
+              className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center gap-2 text-slate-800 dark:text-slate-200 hover:border-brand-primary/50 transition-colors col-span-2"
             >
-              <Code2 className="w-4 h-4 text-brand-primary" />
+              <Code2 className="w-4 h-4 text-brand-primary flex-shrink-0" />
               <span>vBook Rule Tester</span>
             </Link>
           </div>
@@ -234,7 +228,7 @@ export const Header: React.FC = () => {
               className="flex items-center gap-1 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white py-1"
             >
               <BookOpen className="w-3.5 h-3.5 text-slate-400" />
-              <span>Hướng dẫn sử dụng</span>
+              <span>HDSD</span>
               <ExternalLink className="w-3 h-3 opacity-60" />
             </a>
 
@@ -245,7 +239,7 @@ export const Header: React.FC = () => {
               className="flex items-center gap-1 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white py-1"
             >
               <Boxes className="w-3.5 h-3.5 text-slate-400" />
-              <span>Nguồn mở rộng</span>
+              <span>Nguồn Ext</span>
               <ExternalLink className="w-3 h-3 opacity-60" />
             </a>
           </div>

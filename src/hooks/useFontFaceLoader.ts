@@ -21,8 +21,10 @@ export const useFontFaceLoader = (initialFont: FontItem): UseFontFaceLoaderRetur
   const loadedFamilies = useRef<Set<string>>(new Set());
 
   const loadFont = useCallback(async (font: FontItem): Promise<boolean> => {
-    // Nếu font hệ thống hoặc đã nạp rồi
-    if (loadedFamilies.current.has(font.family)) {
+    // Nếu font mặc định hệ thống hoặc đã nạp rồi
+    if (!font.filename || font.family === 'inherit' || font.id === 'system-default' || loadedFamilies.current.has(font.family)) {
+      setIsLoading(false);
+      setError(null);
       return true;
     }
 

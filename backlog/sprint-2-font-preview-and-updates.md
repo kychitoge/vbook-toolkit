@@ -15,14 +15,14 @@
 
 | Task ID | Mô tả công việc | Trạng thái | Ưu tiên | Phụ trách |
 |---|---|---|---|---|
-| **SP2-01** | Chuẩn hóa tài nguyên ảnh nền: Đổi tên 72 file ảnh thành định dạng `background_{1..72}.[ext]` và chuẩn hóa tên 93 font chữ. | Done ✅ | P0 | Data / Dev |
-| **SP2-02** | Khởi tạo cấu hình tĩnh `fontList.ts` và `backgroundList.ts` ánh xạ URL tới `https://toolkit-cdn.vbookext.me`. | Done ✅ | P0 | Dev |
+| **SP2-01** | Chuẩn hóa tài nguyên ảnh nền: Đổi tên 96 file ảnh thành định dạng `background_{1..96}.[ext]` và chuẩn hóa 94 font chữ (bao gồm font hệ thống). | Done ✅ | P0 | Data / Dev |
+| **SP2-02** | Khởi tạo cấu hình tĩnh `fontPreviewAssets.ts` ánh xạ URL tới `https://toolkit-cdn.vbookext.me` (zero-asset default load). | Done ✅ | P0 | Dev |
 | **SP2-03** | Xây dựng Hook `useFontFaceLoader` quản lý nạp font động qua `FontFace API` (xử lý cache, trạng thái loading, fallback). | Done ✅ | P0 | Dev |
-| **SP2-04** | Xây dựng Component `ReadingSandbox.tsx`: Khung đọc truyện giả lập văn bản mẫu, hỗ trợ đổi font, cỡ chữ, dãn dòng, căn lề, background & overlay opacity. | Done ✅ | P0 | Dev |
-| **SP2-05** | Xây dựng Component `FontPicker.tsx` & `BackgroundGrid.tsx`: Tìm kiếm font, chọn font theo danh mục, grid thumbnail ảnh nền. | Done ✅ | P1 | Dev |
+| **SP2-04** | Xây dựng Component `ReadingSandbox.tsx`: Khung đọc truyện giả lập văn bản mẫu, hỗ trợ đổi font, cỡ chữ, dãn dòng, căn lề, background & overlay opacity 0% mặc định. | Done ✅ | P0 | Dev |
+| **SP2-05** | Xây dựng Component `FontSelector.tsx` & `BackgroundSelector.tsx`: Tìm kiếm font, chọn font theo danh mục, grid thumbnail 96 ảnh nền, tự động cuộn tức thì đến item đang chọn và lưu `localStorage`. | Done ✅ | P1 | Dev |
 | **SP2-06** | Xây dựng tính năng nạp Font/Ảnh cá nhân từ thiết bị người dùng qua `URL.createObjectURL` (100% Client-Side). | Done ✅ | P1 | Dev |
 | **SP2-07** | Tích hợp 2 nút tải nhanh 1-Click: `[Tải Font Hiện Tại]` và `[Tải Ảnh Hiện Tại]` trực tiếp từ CDN R2. | Done ✅ | P1 | Dev |
-| **SP2-08** | Thiết kế Responsive UI: 2 cột (60/40) trên Desktop và Bottom Sheet trượt trên Mobile. | Done ✅ | P1 | Dev |
+| **SP2-08** | Thiết kế Responsive UI: 2 cột (60/40) trên Desktop, Bottom Sheet trượt trên Mobile và tối ưu Header di động chống vỡ dòng. | Done ✅ | P1 | Dev |
 | **SP2-09** | Khai báo route `/font-preview` trong `App.tsx` và thêm tool item vào `src/config/tools.ts`. | Done ✅ | P0 | Dev |
 
 ---

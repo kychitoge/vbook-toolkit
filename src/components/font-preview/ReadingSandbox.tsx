@@ -112,7 +112,10 @@ export const ReadingSandbox: React.FC<ReadingSandboxProps> = ({
           <div
             className="transition-all duration-200 whitespace-pre-line select-text"
             style={{
-              fontFamily: activeFont.family ? `"${activeFont.family}", serif` : 'inherit',
+              fontFamily:
+                activeFont.family && activeFont.family !== 'inherit'
+                  ? `"${activeFont.family}", serif`
+                  : 'inherit',
               fontSize: `${fontSize}px`,
               lineHeight: lineHeight,
               textAlign: textAlign,

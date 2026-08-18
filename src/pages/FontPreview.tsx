@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {
   FONTS_DATA,
+  DEFAULT_SYSTEM_FONT,
   BACKGROUNDS_DATA,
   BackgroundItem,
   getFontCdnUrl,
@@ -23,8 +24,38 @@ import {
   ChevronUp,
 } from 'lucide-react';
 
+interface FontPreviewPreferences {
+  activeFontId?: string;
+  activeBgId?: string | null;
+  fontSize?: number;
+  lineHeight?: number;
+  textAlign?: 'left' | 'center' | 'right' | 'justify';
+  overlayOpacity?: number;
+  textColor?: string;
+  bgColor?: string;
+  sampleText?: string;
+}
+
+const STORAGE_KEY = 'vbook_font_preview_prefs';
+
+const loadSavedPreferences = (): Partial<FontPreviewPreferences> => {
+  try {
+    const data = localStorage.getItem(STORAGE_KEY);
+    if (data) return JSON.parse(data);
+  } catch (e) {
+    console.warn('Failed to load font preview preferences', e);
+  }
+  return {};
+};
+
 export const FontPreviewPage: React.FC = () => {
   const { showToast } = useToast();
+  const initialPrefs = useRef(loadSavedPreferences()).current;
+
+  // Initial font setup (mặc định là font hệ thống/web để load nhanh)
+  const initialFont =
+    (initialPrefs.activeFontId && FONTS_DATA.find((f) => f.id === initialPrefs.activeFontId)) ||
+    DEFAULT_SYSTEM_FONT;
 
   // Font loader hook
   const {
@@ -34,20 +65,60 @@ export const FontPreviewPage: React.FC = () => {
     error: fontError,
     loadCustomFontFile,
     customFonts,
-  } = useFontFaceLoader(FONTS_DATA[0]);
+  } = useFontFaceLoader(initialFont);
 
-  // Background states
-  const [activeBg, setActiveBg] = useState<BackgroundItem | null>(BACKGROUNDS_DATA[0]);
+  // Background states (mặc định là null / Nền đơn sắc để load trang tức thì)
+  const getInitialBg = (): BackgroundItem | null => {
+    if (!initialPrefs.activeBgId) return null;
+    const found = BACKGROUNDS_DATA.find((b) => b.id === initialPrefs.activeBgId);
+    return found || null;
+  };
+
+  const [activeBg, setActiveBg] = useState<BackgroundItem | null>(getInitialBg);
   const [customBackgrounds, setCustomBackgrounds] = useState<BackgroundItem[]>([]);
 
-  // Reader typography & color states
-  const [fontSize, setFontSize] = useState<number>(18);
-  const [lineHeight, setLineHeight] = useState<number>(1.8);
-  const [textAlign, setTextAlign] = useState<'left' | 'center' | 'right' | 'justify'>('justify');
-  const [overlayOpacity, setOverlayOpacity] = useState<number>(20);
-  const [textColor, setTextColor] = useState<string>('#1e293b');
-  const [bgColor, setBgColor] = useState<string>('#f8fafc');
-  const [sampleText, setSampleText] = useState<string>(DEFAULT_SAMPLE_TEXT);
+  // Reader typography & color states (mặc định overlayOpacity = 0 vì vbook không có lớp phủ nền)
+  const [fontSize, setFontSize] = useState<number>(initialPrefs.fontSize ?? 18);
+  const [lineHeight, setLineHeight] = useState<number>(initialPrefs.lineHeight ?? 1.8);
+  const [textAlign, setTextAlign] = useState<'left' | 'center' | 'right' | 'justify'>(
+    initialPrefs.textAlign ?? 'justify'
+  );
+  const [overlayOpacity, setOverlayOpacity] = useState<number>(initialPrefs.overlayOpacity ?? 0);
+  const [textColor, setTextColor] = useState<string>(initialPrefs.textColor ?? '#1e293b');
+  const [bgColor, setBgColor] = useState<string>(initialPrefs.bgColor ?? '#f8fafc');
+  const [sampleText, setSampleText] = useState<string>(
+    initialPrefs.sampleText ?? DEFAULT_SAMPLE_TEXT
+  );
+
+  // Lưu cài đặt vào localStorage
+  useEffect(() => {
+    try {
+      const prefs: FontPreviewPreferences = {
+        activeFontId: activeFont.isCustom ? undefined : activeFont.id,
+        activeBgId: activeBg ? (activeBg.isCustom ? undefined : activeBg.id) : null,
+        fontSize,
+        lineHeight,
+        textAlign,
+        overlayOpacity,
+        textColor,
+        bgColor,
+        sampleText: sampleText === DEFAULT_SAMPLE_TEXT ? undefined : sampleText,
+      };
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(prefs));
+    } catch {
+      // Bỏ qua lỗi quota/storage nếu có
+    }
+  }, [
+    activeFont,
+    activeBg,
+    fontSize,
+    lineHeight,
+    textAlign,
+    overlayOpacity,
+    textColor,
+    bgColor,
+    sampleText,
+  ]);
 
   // UI Control Panel Tab State
   const [activeTab, setActiveTab] = useState<'fonts' | 'backgrounds' | 'typography'>('fonts');
@@ -88,7 +159,14 @@ export const FontPreviewPage: React.FC = () => {
 
   // 1-Click Download Font
   const handleDownloadActiveFont = () => {
-    const downloadUrl = activeFont.isCustom && activeFont.customBlobUrl ? activeFont.customBlobUrl : getFontCdnUrl(activeFont.filename);
+    if (!activeFont.filename) {
+      showToast('Đang dùng font mặc định của hệ thống', 'info');
+      return;
+    }
+    const downloadUrl =
+      activeFont.isCustom && activeFont.customBlobUrl
+        ? activeFont.customBlobUrl
+        : getFontCdnUrl(activeFont.filename);
     const a = document.createElement('a');
     a.href = downloadUrl;
     a.download = activeFont.filename;
@@ -103,7 +181,8 @@ export const FontPreviewPage: React.FC = () => {
       showToast('Chưa chọn ảnh nền', 'info');
       return;
     }
-    const downloadUrl = activeBg.isCustom && activeBg.customBlobUrl ? activeBg.customBlobUrl : activeBg.fullUrl;
+    const downloadUrl =
+      activeBg.isCustom && activeBg.customBlobUrl ? activeBg.customBlobUrl : activeBg.fullUrl;
     const a = document.createElement('a');
     a.href = downloadUrl;
     a.download = activeBg.filename;
@@ -117,12 +196,15 @@ export const FontPreviewPage: React.FC = () => {
     setFontSize(18);
     setLineHeight(1.8);
     setTextAlign('justify');
-    setOverlayOpacity(20);
+    setOverlayOpacity(0);
     setTextColor('#1e293b');
     setBgColor('#f8fafc');
     setSampleText(DEFAULT_SAMPLE_TEXT);
-    setActiveFont(FONTS_DATA[0]);
-    setActiveBg(BACKGROUNDS_DATA[0]);
+    setActiveFont(DEFAULT_SYSTEM_FONT);
+    setActiveBg(null);
+    try {
+      localStorage.removeItem(STORAGE_KEY);
+    } catch {}
     showToast('Đã khôi phục mặc định', 'info');
   };
 
@@ -233,8 +315,13 @@ export const FontPreviewPage: React.FC = () => {
           <button
             type="button"
             onClick={handleDownloadActiveFont}
-            className="flex-1 sm:flex-none btn-primary py-2 px-3.5 text-xs font-bold rounded-xl flex items-center justify-center gap-1.5 shadow-sm"
-            title={`Tải file ${activeFont.filename}`}
+            disabled={!activeFont.filename}
+            className={`flex-1 sm:flex-none py-2 px-3.5 text-xs font-bold rounded-xl flex items-center justify-center gap-1.5 transition-all ${
+              activeFont.filename
+                ? 'btn-primary shadow-sm'
+                : 'bg-slate-100 dark:bg-slate-800 text-slate-400 border border-slate-200 dark:border-slate-700 cursor-not-allowed'
+            }`}
+            title={activeFont.filename ? `Tải file ${activeFont.filename}` : 'Đang dùng font mặc định của hệ thống'}
           >
             <Download className="w-3.5 h-3.5" />
             <span>Tải Font</span>

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useLayoutEffect, useEffect } from 'react';
 import { BackgroundItem } from '../../config/fontPreviewAssets';
 import { Upload, Ban, Check } from 'lucide-react';
 
@@ -18,6 +18,33 @@ export const BackgroundSelector: React.FC<BackgroundSelectorProps> = ({
   onUploadCustomBg,
 }) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const activeItemRef = useRef<HTMLButtonElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const scrollActiveIntoViewInstantly = () => {
+    if (activeItemRef.current && containerRef.current) {
+      const container = containerRef.current;
+      const activeEl = activeItemRef.current;
+      const targetScrollTop =
+        activeEl.offsetTop - container.offsetTop - (container.clientHeight - activeEl.clientHeight) / 2;
+      container.scrollTop = Math.max(0, targetScrollTop);
+    } else if (activeBg === null && containerRef.current) {
+      containerRef.current.scrollTop = 0;
+    }
+  };
+
+  // Đặt vị trí cuộn tức thì ngay trước khi render frame đầu tiên (không delay, không lướt chuyển động gây khựng)
+  useLayoutEffect(() => {
+    scrollActiveIntoViewInstantly();
+  }, [activeBg?.id]);
+
+  useEffect(() => {
+    // Dự phòng khi Drawer/Modal hoàn tất layout animation
+    const rafId = requestAnimationFrame(() => {
+      scrollActiveIntoViewInstantly();
+    });
+    return () => cancelAnimationFrame(rafId);
+  }, [activeBg?.id]);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -71,7 +98,10 @@ export const BackgroundSelector: React.FC<BackgroundSelectorProps> = ({
       </div>
 
       {/* Background Grid */}
-      <div className="grid grid-cols-3 sm:grid-cols-4 gap-2 max-h-[380px] sm:max-h-[460px] overflow-y-auto pr-1 custom-scrollbar">
+      <div
+        ref={containerRef}
+        className="grid grid-cols-3 sm:grid-cols-4 gap-2 max-h-[380px] sm:max-h-[460px] overflow-y-auto pr-1 custom-scrollbar"
+      >
         {allBackgrounds.map((bg) => {
           const isActive = activeBg?.id === bg.id;
           const previewUrl = bg.isCustom && bg.customBlobUrl ? bg.customBlobUrl : bg.thumbnailUrl;
@@ -79,6 +109,7 @@ export const BackgroundSelector: React.FC<BackgroundSelectorProps> = ({
           return (
             <button
               key={bg.id}
+              ref={isActive ? activeItemRef : undefined}
               type="button"
               onClick={() => onSelectBg(bg)}
               className={`group relative aspect-[3/4] rounded-xl overflow-hidden border-2 transition-all text-left ${

@@ -14,9 +14,10 @@ Giao diện được thiết kế theo phong cách phẳng tối giản (**Flat 
 | 2 | **Nâng Cấp Premium** | `/premium` | Bảng so sánh quyền lợi Free vs Premium, sinh mã VietQR MB Bank tự động theo chuẩn ngân hàng NAPAS và hỗ trợ qua Discord. |
 | 3 | **Tên Nhiều Màu (Gradient Name)** | `/name-color` | Xem trước nickname chuyển màu động (CSS Linear Gradient), tùy biến mã HEX (lên tới 15 dòng) và tạo mã QR kích hoạt gói Màu / Combo. |
 | 4 | **vBook Rule Tester Web** | `/rule-tester` | Công cụ web soát lỗi cú pháp quy tắc QuickTranslate, thử nghiệm dịch trực tiếp, hỗ trợ Drag & Drop file lớn và xuất file `.txt`. |
-| 5 | **Hướng Dẫn Sử Dụng** | `/hdsd` | Chuyển hướng tức thì (302) sang GitBook Hướng dẫn sử dụng vBook chính thức. |
-| 6 | **Danh Sách Nguồn Mở Rộng** | `/extension` | Chuyển hướng tức thì sang kho Extension nguồn đọc truyện `vbookext.me`. |
-| 7 | **Data QT Collection** | `/qt` | Chuyển hướng tức thì sang kho bộ sưu tập dữ liệu QuickTranslate `qt.vbookext.me/collections`. |
+| 5 | **Thử Font & Hình Nền** | `/font-preview` | Live Sandbox mô phỏng đọc truyện thực tế với 94 font chữ & 96 hình nền tuyển chọn, hỗ trợ nạp font/ảnh cá nhân và tải về 1-Click. |
+| 6 | **Hướng Dẫn Sử Dụng** | `/hdsd` | Chuyển hướng tức thì (302) sang GitBook Hướng dẫn sử dụng vBook chính thức. |
+| 7 | **Danh Sách Nguồn Mở Rộng** | `/extension` | Chuyển hướng tức thì sang kho Extension nguồn đọc truyện `vbookext.me`. |
+| 8 | **Data QT Collection** | `/qt` | Chuyển hướng tức thì sang kho bộ sưu tập dữ liệu QuickTranslate `qt.vbookext.me/collections`. |
 
 ---
 

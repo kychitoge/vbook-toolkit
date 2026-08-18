@@ -5,7 +5,7 @@
 * **Đường dẫn:** `/font-preview`
 * **Tác giả:** `duongden`
 * **Mục tiêu:** Cung cấp không gian tương tác trực quan (Live Sandbox) mô phỏng trải nghiệm đọc sách/truyện thực tế với văn bản mẫu, cho phép độc giả tùy chỉnh font chữ, hình nền, cỡ chữ, căn lề, độ mờ overlay trước khi tải về cài đặt vào ứng dụng vBook.
-* **Nguồn tài nguyên cộng đồng:** ~93 font chữ tuyển chọn và ~72 hình nền đọc truyện.
+* **Nguồn tài nguyên cộng đồng:** ~93 font chữ tuyển chọn và ~96 hình nền đọc truyện.
 * **Credit Google Drive:** `https://drive.google.com/drive/folders/1sZrmJYPV6Jw69w31dG2NyY6S8SYnbrX4`
 
 ---
@@ -15,7 +15,7 @@
 * **Custom Domain CDN:** `https://toolkit-cdn.vbookext.me`
 * **CORS Policy:** Đã mở `GET`, `HEAD` cho phép trình duyệt nạp dynamic font qua `FontFace API`.
 * **Quy ước đặt tên Asset:**
-  * Ảnh nền: Chuẩn hóa về định dạng `background_{index}.[webp|jpg|png]` (ví dụ: `background_1.webp`, `background_2.jpg`...).
+  * Ảnh nền: Chuẩn hóa về định dạng `background_{index}.[webp|jpg|png]` (ví dụ: `background_1.jpeg`, `background_73.jpg`...).
   * Font chữ: Đặt tên file chuẩn, lưu tại `/fonts/` trên CDN R2.
 * **Cấu hình tĩnh (Zero Manifest JSON):**
   * Danh sách URL được khai báo tĩnh trong code (`FONT_FILES`, `BG_FILES`). Tên hiển thị được trích xuất và format tự động bằng regex helper.
@@ -27,11 +27,12 @@
 ### 📖 3.1. Màn hình Đọc thử nghiệm (Live Reading Sandbox)
 * Giả lập khung đọc sách thực tế với đoạn văn bản mẫu Tiếng Việt phong phú (có đủ dấu thanh, ngoặc kép, hội thoại).
 * Thanh điều khiển thông số Typography:
-  * **Cỡ chữ (Font Size):** 14px - 32px.
-  * **Chiều cao dòng (Line Height):** 1.4 - 2.6.
+  * **Cỡ chữ (Font Size):** 14px - 36px.
+  * **Chiều cao dòng (Line Height):** 1.4 - 2.8.
   * **Căn lề (Text Alignment):** Trái (Left), Giữa (Center), Phải (Right), Đều 2 bên (Justify).
-  * **Độ mờ lớp phủ nền (Overlay Opacity):** 0% - 90% (giúp đọc rõ chữ trên nền ảnh rực rỡ).
-  * **Màu chữ:** Tự động điều chỉnh theo theme Sáng/Tối hoặc tùy chọn tương phản.
+  * **Độ mờ lớp phủ nền (Overlay Opacity):** Mặc định 0% (đồng bộ với ứng dụng vBook không có lớp phủ nền), tùy chỉnh từ 0% - 90%.
+  * **Màu chữ & màu nền:** Tự động điều chỉnh theo combo nhanh hoặc bảng màu chi tiết/bút chọn màu (Eyedropper).
+  * **Tự động lưu trạng thái & cuộn chính xác:** Lưu font, nền và thông số vào `localStorage`; tự động cuộn đến vị trí font/ảnh nền đang chọn khi mở cài đặt.
 
 ### 🔤 3.2. Quản lý & Nạp Font Chữ
 * Danh sách 93 font chữ phân loại rõ ràng (Serif, Sans-serif, Display, Thư pháp/Viết tay).
@@ -39,7 +40,7 @@
 * **Nạp font cá nhân (Local Upload):** Hỗ trợ kéo/thả hoặc chọn file `.ttf`, `.otf` từ máy tính/điện thoại để xem trước ngay lập tức qua `URL.createObjectURL` (100% Client-Side, không upload lên server).
 
 ### 🖼️ 3.3. Quản lý & Chọn Hình Nền
-* Grid thumbnail 72 ảnh nền đọc truyện được tối ưu hóa hiển thị.
+* Grid thumbnail 96 ảnh nền đọc truyện được tối ưu hóa hiển thị.
 * **Nạp ảnh nền cá nhân:** Cho phép người dùng upload ảnh từ máy để kiểm tra độ tương phản văn bản với hình nền riêng.
 
 ### ⚡ 3.4. Tác vụ Tải xuống 1-Click

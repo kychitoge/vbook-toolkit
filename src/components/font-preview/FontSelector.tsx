@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useRef } from 'react';
+import React, { useState, useMemo, useRef, useLayoutEffect, useEffect } from 'react';
 import { FontItem } from '../../config/fontPreviewAssets';
 import { Search, Upload, Check, Type, Sparkles } from 'lucide-react';
 
@@ -20,6 +20,30 @@ export const FontSelector: React.FC<FontSelectorProps> = ({
   const [searchQuery, setSearchQuery] = useState('');
   const [activeCategory, setActiveCategory] = useState<'all' | 'serif' | 'sans' | 'display' | 'custom'>('all');
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const activeItemRef = useRef<HTMLButtonElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const scrollActiveIntoViewInstantly = () => {
+    if (activeItemRef.current && containerRef.current) {
+      const container = containerRef.current;
+      const activeEl = activeItemRef.current;
+      const targetScrollTop =
+        activeEl.offsetTop - container.offsetTop - (container.clientHeight - activeEl.clientHeight) / 2;
+      container.scrollTop = Math.max(0, targetScrollTop);
+    }
+  };
+
+  // Đặt vị trí cuộn tức thì ngay trước khi render frame đầu tiên
+  useLayoutEffect(() => {
+    scrollActiveIntoViewInstantly();
+  }, [activeFont.id, activeCategory]);
+
+  useEffect(() => {
+    const rafId = requestAnimationFrame(() => {
+      scrollActiveIntoViewInstantly();
+    });
+    return () => cancelAnimationFrame(rafId);
+  }, [activeFont.id, activeCategory]);
 
   // Gộp font hệ thống và font cá nhân
   const allFonts = useMemo(() => {
@@ -153,7 +177,10 @@ export const FontSelector: React.FC<FontSelectorProps> = ({
       </div>
 
       {/* Font List Scrollable */}
-      <div className="space-y-1.5 max-h-[380px] sm:max-h-[460px] overflow-y-auto pr-1 custom-scrollbar">
+      <div
+        ref={containerRef}
+        className="space-y-1.5 max-h-[380px] sm:max-h-[460px] overflow-y-auto pr-1 custom-scrollbar"
+      >
         {filteredFonts.length === 0 ? (
           <div className="p-6 text-center text-slate-400 dark:text-slate-500 text-xs">
             Không tìm thấy font nào phù hợp.
@@ -165,6 +192,7 @@ export const FontSelector: React.FC<FontSelectorProps> = ({
             return (
               <button
                 key={font.id}
+                ref={isActive ? activeItemRef : undefined}
                 type="button"
                 onClick={() => onSelectFont(font)}
                 className={`w-full text-left p-2.5 rounded-xl border transition-all flex items-center justify-between gap-3 ${
@@ -186,6 +214,11 @@ export const FontSelector: React.FC<FontSelectorProps> = ({
                   <div className="min-w-0">
                     <div className="text-xs sm:text-[13px] font-semibold truncate flex items-center gap-1.5">
                       <span>{font.name}</span>
+                      {font.id === 'system-default' && (
+                        <span className="text-[10px] px-1 py-0.2 rounded bg-sky-100 dark:bg-sky-900/60 text-sky-800 dark:text-sky-300 font-normal">
+                          Mặc định
+                        </span>
+                      )}
                       {font.isCustom && (
                         <span className="text-[10px] px-1 py-0.2 rounded bg-amber-100 dark:bg-amber-900/60 text-amber-800 dark:text-amber-300 font-normal">
                           Cá nhân
@@ -193,7 +226,7 @@ export const FontSelector: React.FC<FontSelectorProps> = ({
                       )}
                     </div>
                     <div className="text-[11px] text-slate-400 dark:text-slate-500 truncate">
-                      {font.filename}
+                      {font.filename || 'Phông chữ mặc định của thiết bị / web'}
                     </div>
                   </div>
                 </div>

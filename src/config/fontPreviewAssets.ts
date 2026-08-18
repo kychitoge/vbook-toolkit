@@ -22,8 +22,17 @@ export interface BackgroundItem {
   customBlobUrl?: string;
 }
 
-// 93 Fonts tuyển chọn (Đã chuẩn hóa tên file chữ thường, gạch nối)
+export const DEFAULT_SYSTEM_FONT: FontItem = {
+  id: 'system-default',
+  name: 'Mặc định (Hệ thống)',
+  family: 'inherit',
+  filename: '',
+  category: 'sans',
+};
+
+// 94 Fonts tuyển chọn (Bao gồm Font Mặc định Hệ thống + 93 Fonts CDN)
 export const FONTS_DATA: FontItem[] = [
+  DEFAULT_SYSTEM_FONT,
   // 1. Amasis Kobo
   { id: 'amasis-kobo-regular', name: 'Amasis Kobo Regular', family: 'amasis-kobo-regular', filename: 'amasis-kobo-regular.ttf', category: 'serif', weight: 'normal' },
   { id: 'amasis-kobo-bold', name: 'Amasis Kobo Bold', family: 'amasis-kobo-bold', filename: 'amasis-kobo-bold.ttf', category: 'serif', weight: 'bold' },
@@ -162,7 +171,7 @@ export const FONTS_DATA: FontItem[] = [
   { id: 'uvn-saigon-bi', name: 'UVN Saigon Bold Italic', family: 'uvn-saigon-bi', filename: 'uvnsaigon-bi.ttf', category: 'display', weight: 'bold', style: 'italic' },
 ];
 
-// Danh sách định dạng phần mở rộng thực tế của 72 ảnh nền
+// Danh sách định dạng phần mở rộng thực tế của 96 ảnh nền
 const bgExtensions: Record<number, string> = {
   1: 'jpeg', 2: 'jpg', 3: 'jpg', 4: 'jpg', 5: 'webp', 6: 'jpg', 7: 'webp', 8: 'webp', 9: 'webp', 10: 'webp',
   11: 'webp', 12: 'webp', 13: 'webp', 14: 'webp', 15: 'webp', 16: 'webp', 17: 'webp', 18: 'webp', 19: 'webp', 20: 'webp',
@@ -171,11 +180,13 @@ const bgExtensions: Record<number, string> = {
   41: 'jpg', 42: 'jpg', 43: 'jpg', 44: 'jpg', 45: 'jpg', 46: 'jpg', 47: 'jpg', 48: 'jpg', 49: 'jpg', 50: 'jpg',
   51: 'jpg', 52: 'jpg', 53: 'jpg', 54: 'jpg', 55: 'jpg', 56: 'jpg', 57: 'jpg', 58: 'jpg', 59: 'jpg', 60: 'jpg',
   61: 'jpg', 62: 'jpg', 63: 'jpg', 64: 'jpg', 65: 'jpg', 66: 'jpg', 67: 'jpg', 68: 'jpg', 69: 'jpg', 70: 'jpg',
-  71: 'jpg', 72: 'jpg'
+  71: 'jpg', 72: 'jpg', 73: 'jpg', 74: 'jpg', 75: 'jpg', 76: 'jpg', 77: 'jpg', 78: 'jpg', 79: 'jpg', 80: 'jpg',
+  81: 'jpg', 82: 'jpg', 83: 'jpg', 84: 'jpg', 85: 'jpg', 86: 'jpg', 87: 'jpg', 88: 'jpg', 89: 'png', 90: 'png',
+  91: 'png', 92: 'jpg', 93: 'jpg', 94: 'jpg', 95: 'jpg', 96: 'jpg'
 };
 
-// 72 Backgrounds chuẩn hóa: background_1 -> background_72
-export const BACKGROUNDS_DATA: BackgroundItem[] = Array.from({ length: 72 }, (_, idx) => {
+// 96 Backgrounds chuẩn hóa: background_1 -> background_96
+export const BACKGROUNDS_DATA: BackgroundItem[] = Array.from({ length: 96 }, (_, idx) => {
   const index = idx + 1;
   const ext = bgExtensions[index] || 'jpg';
   const filename = `background_${index}.${ext}`;
@@ -203,27 +214,4 @@ Diệp Phong khẽ thở dài, nâng chén trà đã nguội lạnh, ánh mắt 
 "Trần thế vạn biến, tuế nguyệt như thoi đưa. Ba ngàn năm phiêu bạt, rốt cuộc tâm này vẫn vương vấn hồng trần sao?"
 
 Bên cạnh, tiếng suối reo róc rách hòa cùng tiếng côn trùng rả rích tạo nên một khúc nhạc thanh bình hiếm có. Hắn nhắm mắt lại, cảm nhận từng luồng thiên địa linh khí nhẹ nhàng thẩm thấu vào kinh mạch, tĩnh lặng mà hùng hậu như đại dương sâu thẳm.
-
-— "1. Phân tích những điều kiện và tiền đề khách quan cho sự ra đời của chủ nghĩa xã hội khoa học.
-a, Điều kiện KT-XH
-- Vào những năm 40 của thế kỉ XIX, cuộc CM CN phát triển mạnh mẽ tạo nên đại CN. Nền đại CN cơ khí làm cho PTSX TBCN có bước phát triển vượt bậc cả về quy mô sản xuất và năng suất LĐ, kinh nghiệm quản lí....
-- Cùng với quá trình phát triển của nền đại CN dẫn đến sự ra đời của 2 giai cấp cơ bản đối lập nhau về lợi ích, nhưng nương tựa vào nhau : GCTS, GCCN
-- Cuộc đấu tranh của GCCN chống lại sự thống trị áp bức của GCTS, biểu hiện về mặt xã hội là mâu thuẫn ngày càng quyết liệt giữa LLSX mang tính chất XH với QHSX dựa trên chế độ chiếm hữu tư nhân TBCN về TLSX. Do đó nhiều cuộc khởi nghĩa, nhiều phong trào đấu tranh đã bắt đầu có tổ chức và trên quy mô rộng khắp.
-  + Phong trào hiến chương của những người lao động Anh diễn ra trên 10 năm (1835-1848)
-  + Phong trào CN dệt của thành phố Xi lê di (nước Đức) diễn ra năm 1844
-  + Phong trào CN dệt của thành phố Lion (nước Pháp) kéo dài 3 năm (1831-1834)   đã có tính chất chính trị rõ nét
-=> Qua các phong trào đã chứng minh GCCN thực sự trưởng thành. Sự lớn mạnh của phong trào đtranh của GCCN đòi hỏi 1 cách bức thiết phải có 1 hệ thống lý luận soi đường và một cương lĩnh chính trị làm kim chir nam cho hoạt động.
-- ĐK KTXH đã đặt ra yêu cầu đối với các nhà tư tưởng của GCCN và là mảnh đất hiện thực cho sự ra đời 1 lí luận mới, tiến bộ CNXHKH
-b, Tiền đề KHTN và tư tưởng lí luận
-* Tiền đề KHTN :
-- Đầu thế kỷ XIX, nhân loại đã đạt nhiều thành tựu to lớn trên lĩnh vực KHTN và XH, tiêu biểu là 3 phát minh trong KHTN
-- Học thuyết tế bào phát minh năm 1838-1839, của nhà thực vật học người Đức Matthias Jakob Schleiden(1804-1881) và nhà vật lí người Đức Theodor Schwann(1810-1882)
-- Định luật bảo toàn và chuyển hóa năng lượng, phát minh năm (1942-1945) của người Nga M.V.Lomonosov (1771-1765) và người Đức Maye (1814-1878)
-- Học thuyết tiến hóa, phát minh năm 1859 của người Anh Charles Damn (1809-1882)
-=> Thành tựu của những phát minh này là cơ sở KH cho sự ra đời của CNDV biện chứng của CNDV lịch sử, là cơ sở phương pháp luận để nghiên cứu những vấn đề lý luận chính trị - xã hội của các nhà sáng lập CNXHKH sau này.
-* Tiền đề TT lý luận
-- Cùng với những thành tựu trong lĩnh vực KHTN, (.) KHXH cũng có những thành tựu đáng ghi nhận như :
-   + Sự ra đời của  triết học cổ điển Đức với tên tuổi của các nhà triết học vĩ đại của Hegel và Feuerbach
-   + Kinh tế chính trị học cổ điển Anh với Adam Smith và Ricardo
-   + CNXH không tưởng phê phán mà đại biểu là Saint Simon và Owen, Fourier.
-"`;
+`
