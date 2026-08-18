@@ -13,6 +13,7 @@ import {
   Palette,
   Boxes,
   Type,
+  FolderDown,
 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
@@ -90,6 +91,18 @@ export const Header: React.FC = () => {
           >
             <Code2 className="w-3.5 h-3.5" />
             <span>Rule Tester</span>
+          </Link>
+
+          <Link
+            to="/get-name"
+            className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-md transition-colors ${
+              location.pathname === '/get-name'
+                ? 'bg-slate-100 text-slate-900 font-semibold border border-slate-200 dark:bg-slate-800 dark:text-slate-100 dark:border-slate-700'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50 dark:text-slate-400 dark:hover:text-slate-100 dark:hover:bg-slate-900'
+            }`}
+          >
+            <FolderDown className="w-3.5 h-3.5 text-emerald-500" />
+            <span>Get Names</span>
           </Link>
 
           <div className="h-3.5 w-[1px] bg-slate-200 dark:bg-slate-800 mx-0.5"></div>
@@ -213,10 +226,19 @@ export const Header: React.FC = () => {
             <Link
               to="/rule-tester"
               onClick={closeMenu}
-              className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center gap-2 text-slate-800 dark:text-slate-200 hover:border-brand-primary/50 transition-colors col-span-2"
+              className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center gap-2 text-slate-800 dark:text-slate-200 hover:border-brand-primary/50 transition-colors"
             >
               <Code2 className="w-4 h-4 text-brand-primary flex-shrink-0" />
-              <span>vBook Rule Tester</span>
+              <span className="truncate">Rule Tester</span>
+            </Link>
+
+            <Link
+              to="/get-name"
+              onClick={closeMenu}
+              className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center gap-2 text-slate-800 dark:text-slate-200 hover:border-brand-primary/50 transition-colors"
+            >
+              <FolderDown className="w-4 h-4 text-emerald-500 flex-shrink-0" />
+              <span className="truncate">Get Names</span>
             </Link>
           </div>
 

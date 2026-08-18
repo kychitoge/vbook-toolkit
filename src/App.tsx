@@ -7,11 +7,12 @@ import { NameColorPage } from './pages/NameColor';
 import { DownloadPage } from './pages/Download';
 import { RuleTesterPage } from './pages/RuleTester';
 import { FontPreviewPage } from './pages/FontPreview';
+import { GetNamePage } from './pages/GetName';
 import { RedirectHandler } from './pages/RedirectHandler';
 
 export const App: React.FC = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -24,6 +25,7 @@ export const App: React.FC = () => {
           <Route path="/download" element={<DownloadPage />} />
           <Route path="/rule-tester" element={<RuleTesterPage />} />
           <Route path="/font-preview" element={<FontPreviewPage />} />
+          <Route path="/get-name" element={<GetNamePage />} />
 
           {/* Instant redirects for external services */}
           <Route

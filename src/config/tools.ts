@@ -8,7 +8,7 @@ export interface ToolItem {
   author: string;
   route: string;
   category: ToolCategory;
-  iconName: 'HeartHandshake' | 'Palette' | 'BookOpen' | 'Download' | 'Code2' | 'Boxes' | 'Layers' | 'Type';
+  iconName: 'HeartHandshake' | 'Palette' | 'BookOpen' | 'Download' | 'Code2' | 'Boxes' | 'Layers' | 'Type' | 'FolderDown';
   isExternal?: boolean;
   externalUrl?: string;
 }
@@ -100,6 +100,16 @@ export const TOOLS_CONFIG: ToolItem[] = [
     description: 'Soát lỗi cú pháp quy tắc QuickTranslate và thử nghiệm dịch trực tiếp câu tiếng Trung.',
     route: '/rule-tester',
     iconName: 'Code2',
+  },
+  {
+    id: 'get-name',
+    title: 'Get Names (Tải Names)',
+    tag: 'Từ điển QT',
+    category: 'other_tools',
+    author: 'duongden, ngatngay, mol',
+    description: 'Bóc tách và tải từ điển tên riêng QuickTranslate từ Wikidich, Sangtacviet, Chiasename.',
+    route: '/get-name',
+    iconName: 'FolderDown',
   },
   {
     id: 'extension',

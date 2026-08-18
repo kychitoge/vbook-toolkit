@@ -18,6 +18,7 @@ Giao diện được thiết kế theo phong cách phẳng tối giản (**Flat 
 | 6 | **Hướng Dẫn Sử Dụng** | `/hdsd` | Chuyển hướng tức thì (302) sang GitBook Hướng dẫn sử dụng vBook chính thức. |
 | 7 | **Danh Sách Nguồn Mở Rộng** | `/extension` | Chuyển hướng tức thì sang kho Extension nguồn đọc truyện `vbookext.me`. |
 | 8 | **Data QT Collection** | `/qt` | Chuyển hướng tức thì sang kho bộ sưu tập dữ liệu QuickTranslate `qt.vbookext.me/collections`. |
+| 9 | **Get Names (Tải Names)** | `/get-name` | Tiện ích bóc tách và tải từ điển tên riêng (QuickTranslate) từ Wikidich, Sangtacviet, Chiasename kèm Live Sandbox & xuất file. |
 
 ---
 

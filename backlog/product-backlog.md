@@ -14,4 +14,5 @@
 | **EPIC 8** | **Font & Background Sandbox (`/font-preview`)** | Trình thử nghiệm trực quan 93 font chữ & 72 hình nền, tích hợp Cloudflare R2 CDN (`toolkit-cdn.vbookext.me`), tùy biến màu chữ/màu nền, nạp font/ảnh máy cục bộ, tải 1-click. | Done ✅ | P0 |
 | **EPIC 9** | **Download Page Landing Overhaul (`/download`)** | Đồng bộ giao diện Landing Page vBook chính thức (`vbookapp.com`), cấu trúc rõ Bản Beta mới nhất (APK/IPA) & Bản cũ ổn định (Legacy APK), Telegram Tracker, Discord, vbookapp.com. | Done ✅ | P1 |
 | **EPIC 10** | **Rule Tester UX Improvements (`/rule-tester`)** | Bổ sung nút thao tác nhanh "Xóa tất cả lỗi" (Clear All Errors) và tối ưu hóa trải nghiệm thao tác quy tắc lớn. | Done ✅ | P1 |
+| **EPIC 11** | **Module Get Names (`/get-name`)** | Tiện ích bóc tách, xem trước và tải từ điển tên riêng (QuickTranslate) từ Wikidich/Wikicv, Sangtacviet, Chiasename Blog; hỗ trợ xuất `.txt` & `.zip`. | Done ✅ | P0 |
 

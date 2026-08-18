@@ -9,6 +9,7 @@ import {
   Boxes,
   Layers,
   Type,
+  FolderDown,
   ExternalLink,
   ChevronRight,
   Sparkles,
@@ -27,6 +28,7 @@ const iconMap = {
   Boxes,
   Layers,
   Type,
+  FolderDown,
 };
 
 export const Home: React.FC = () => {
