@@ -3,7 +3,7 @@
 ## 1. Mục đích & Bối cảnh
 **Get Names** là công cụ trích xuất, xem trước (Sandbox Preview) và tải danh sách **Names (Từ điển tên riêng / QuickTranslate)** từ các nguồn web truyện được cộng đồng vBook sử dụng nhiều nhất (**Wikidich/Wikicv**, **Sangtacviet**, **Chiasename Blog**).
 
-Công cụ chuyển hóa và tối ưu hóa logic thu thập name từ các mã nguồn tham khảo của cộng đồng (`duongden` - làm chuẩn cốt lõi, `mol`, `ngatngay`) thành một giải pháp 100% Client-Side hiện đại, tốc độ cao, giao diện phẳng chuẩn *Azure Fresh*, thân thiện với màn hình di động và hỗ trợ xuất file (`.txt`, `.zip`) chỉ với 1-Click.
+Công cụ chuyển hóa và tối ưu hóa logic thu thập name từ các mã nguồn tham khảo của cộng đồng (`duongden` - làm chuẩn cốt lõi, `mol`) thành một giải pháp 100% Client-Side hiện đại, tốc độ cao, giao diện phẳng chuẩn *Azure Fresh*, thân thiện với màn hình di động và hỗ trợ xuất file (`.txt`, `.zip`) chỉ với 1-Click.
 
 ---
 

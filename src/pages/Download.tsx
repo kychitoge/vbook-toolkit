@@ -71,7 +71,7 @@ export const DownloadPage: React.FC = () => {
       <div className="text-center space-y-3 pt-2 pb-1">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-50 dark:bg-sky-950/60 border border-sky-200 dark:border-sky-800/80 text-brand-dark dark:text-sky-300 text-xs font-semibold">
           <Sparkles className="w-3.5 h-3.5" />
-          <span>vBook — Ứng dụng đọc truyện & quản lý thư viện cá nhân</span>
+          <span>vBook — Đọc truyện & quản lý thư viện cá nhân</span>
         </div>
         <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight">
           Tải Ứng Dụng vBook

@@ -6,7 +6,7 @@
   3. Thiết kế giao diện phẳng tối giản (Flat System UI), hạn chế tối đa lồng box, tối ưu trên cả Mobile & Desktop.
   4. Đăng ký module vào hệ thống và hoàn thiện tài liệu kỹ thuật.
 * **Phiên bản mục tiêu:** `v1.2.0`
-* **Người đóng góp / Nguồn tham khảo:** `duongden` (Core benchmark), `ngatngay`, `mol`, `kychi`
+* **Người đóng góp / Nguồn tham khảo:** `duongden` (Core benchmark), `mol`, `kychi`
 
 ---
 

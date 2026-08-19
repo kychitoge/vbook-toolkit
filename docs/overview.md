@@ -26,7 +26,7 @@ Dự án được xây dựng theo phong cách giao diện phẳng tối giản 
 | 6 | **Hướng Dẫn Sử Dụng** | `/hdsd` | `duongden`, `ngatngay` | Redirect tức thì (302) sang GitBook Hướng dẫn sử dụng vBook chính thức. |
 | 7 | **Nguồn Mở Rộng** | `/extension` | `kychi` | Redirect tức thì (302) sang kho Nguồn mở rộng `vbookext.me`. |
 | 8 | **Data QT Collection** | `/qt` | `kychi` | Redirect tức thì (302) sang kho bộ sưu tập dữ liệu QuickTranslate `qt.vbookext.me/collections`. |
-| 9 | **Get Names (Tải Names)** | `/get-name` | `duongden`, `ngatngay`, `mol` | Tiện ích bóc tách và tải từ điển tên riêng (QuickTranslate) từ Wikidich, Sangtacviet, Chiasename kèm Live Sandbox & xuất file. |
+| 9 | **Get Names (Tải Names)** | `/get-name` | `duongden`, `mol` | Tiện ích bóc tách và tải từ điển tên riêng (QuickTranslate) từ Wikidich, Sangtacviet, Chiasename kèm Live Sandbox & xuất file. |
 
 
 ---

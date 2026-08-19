@@ -106,7 +106,7 @@ export const TOOLS_CONFIG: ToolItem[] = [
     title: 'Get Names (Tải Names)',
     tag: 'Từ điển QT',
     category: 'other_tools',
-    author: 'duongden, ngatngay, mol',
+    author: 'duongden, mol',
     description: 'Bóc tách và tải từ điển tên riêng QuickTranslate từ Wikidich, Sangtacviet, Chiasename.',
     route: '/get-name',
     iconName: 'FolderDown',

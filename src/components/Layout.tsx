@@ -4,12 +4,14 @@ import { Footer } from './Footer';
 import { ToastProvider } from './Toast';
 import { SnowEffect } from './SnowEffect';
 import { ScrollToTop } from './ScrollToTop';
+import { usePageMeta } from '../hooks/usePageMeta';
 
 interface LayoutProps {
   children: React.ReactNode;
 }
 
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
+  usePageMeta();
   return (
     <ToastProvider>
       <ScrollToTop />
