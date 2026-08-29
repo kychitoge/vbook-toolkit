@@ -88,7 +88,8 @@ function parseNameContent(htmlContent: string): ReturnType<typeof parseNameText>
     return parseNameText(container.textContent || (container as HTMLElement).innerText || '');
   }
 
-  return { content: '', names: [] };
+  // Strategy 3: Fallback parse plain text content
+  return parseNameText(htmlContent);
 }
 
 function makePackage(

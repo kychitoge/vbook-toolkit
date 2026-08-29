@@ -20,10 +20,11 @@ function triggerDownload(url: string, filename: string): void {
   URL.revokeObjectURL(url);
 }
 
-/** Tải file văn bản thuần (.txt) về máy */
+/** Tải file văn bản thuần (.txt) về máy có UTF-8 BOM để tránh lỗi font trên Windows Notepad & QuickTranslate */
 export function downloadTextFile(filename: string, content: string): void {
   const safeName = filename.endsWith('.txt') ? filename : `${filename}.txt`;
-  const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+  const utf8Content = content.startsWith('\uFEFF') ? content : `\uFEFF${content}`;
+  const blob = new Blob([utf8Content], { type: 'text/plain;charset=utf-8' });
   triggerDownload(URL.createObjectURL(blob), safeName);
 }
 
@@ -36,7 +37,8 @@ export async function downloadZipFile(
 
   files.forEach((f, idx) => {
     const safeName = makeSafeFilename(f.filename?.replace(/\.txt$/, '') || `name_${idx + 1}`) + '.txt';
-    zip.file(safeName, f.content);
+    const utf8Content = f.content.startsWith('\uFEFF') ? f.content : `\uFEFF${f.content}`;
+    zip.file(safeName, utf8Content);
   });
 
   const blob = await zip.generateAsync({ type: 'blob' });

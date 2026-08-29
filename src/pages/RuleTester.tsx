@@ -105,7 +105,8 @@ export const RuleTesterPage: React.FC = () => {
       showToast('Không có nội dung để xuất file', 'warning');
       return;
     }
-    const blob = new Blob([ruleSource], { type: 'text/plain;charset=utf-8' });
+    const utf8Content = ruleSource.startsWith('\uFEFF') ? ruleSource : `\uFEFF${ruleSource}`;
+    const blob = new Blob([utf8Content], { type: 'text/plain;charset=utf-8' });
     const blobUrl = window.URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = blobUrl;
