@@ -55,6 +55,15 @@ export const App: React.FC = () => {
               />
             }
           />
+          <Route
+            path="/opds"
+            element={
+              <RedirectHandler
+                to="https://opds.vbookext.me/"
+                title="Kho Sách Điện Tử OPDS vBook"
+              />
+            }
+          />
 
           {/* Catch-all fallback */}
           <Route path="*" element={<Navigate to="/" replace />} />

@@ -10,7 +10,7 @@ Giao diện được thiết kế theo phong cách phẳng tối giản (**Flat 
 
 | STT | Công cụ | Đường dẫn | Mô tả |
 |:---:|---|:---:|---|
-| 1 | **Tải Ứng Dụng vBook** | `/download` | Tải nhanh bộ cài đặt Android APK (Bản Beta mới nhất & Legacy), iOS IPA (Sideload) và kênh theo dõi Telegram Tracker. |
+| 1 | **Tải Ứng Dụng vBook** | `/download` | Tải ứng dụng vBook đa nền tảng: Android (Beta APK & Legacy), iOS (TestFlight & IPA Sideload), Desktop (Windows MSI, macOS DMG, Linux DEB/RPM) và kênh Telegram Tracker. |
 | 2 | **Nâng Cấp Premium** | `/premium` | Bảng so sánh quyền lợi Free vs Premium, sinh mã VietQR MB Bank tự động theo chuẩn ngân hàng NAPAS và hỗ trợ qua Discord. |
 | 3 | **Tên Nhiều Màu (Gradient Name)** | `/name-color` | Xem trước nickname chuyển màu động (CSS Linear Gradient), tùy biến mã HEX (lên tới 15 dòng) và tạo mã QR kích hoạt gói Màu / Combo. |
 | 4 | **vBook Rule Tester Web** | `/rule-tester` | Công cụ web soát lỗi cú pháp quy tắc QuickTranslate, thử nghiệm dịch trực tiếp, hỗ trợ Drag & Drop file lớn và xuất file `.txt`. |
@@ -19,6 +19,7 @@ Giao diện được thiết kế theo phong cách phẳng tối giản (**Flat 
 | 7 | **Danh Sách Nguồn Mở Rộng** | `/extension` | Chuyển hướng tức thì sang kho Extension nguồn đọc truyện `vbookext.me`. |
 | 8 | **Data QT Collection** | `/qt` | Chuyển hướng tức thì sang kho bộ sưu tập dữ liệu QuickTranslate `qt.vbookext.me/collections`. |
 | 9 | **Get Names (Tải Names)** | `/get-name` | Tiện ích bóc tách và tải từ điển tên riêng (QuickTranslate) từ Wikidich, Sangtacviet, Chiasename kèm Live Sandbox & xuất file. |
+| 10 | **Kho Sách Điện Tử OPDS** | `/opds` | Chuyển hướng tức thì (302) sang kho danh mục sách điện tử OPDS `opds.vbookext.me/` (hướng dẫn tại Discord & diễn đàn vBook). |
 
 ---
 

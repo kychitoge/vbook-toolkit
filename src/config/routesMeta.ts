@@ -26,11 +26,11 @@ export const ROUTES_META: Record<string, RouteMeta> = {
   },
   '/download': {
     title: 'Download | vBook Toolkit',
-    description: 'Tải vBook mới nhất cho thiết bị của bạn',
+    description: 'Tải vBook mới nhất cho Android, iOS, Windows, macOS và Linux.',
     keywords:
-      'tai vbook, download vbook apk, vbook beta, vbook ipa, vbook ios, vbook android, vbook app',
+      'tai vbook, download vbook apk, vbook beta, vbook ipa, vbook ios testflight, vbook desktop, vbook windows msi, vbook macos dmg, vbook linux deb rpm, vbook app',
     ogTitle: 'Tải Ứng Dụng vBook — vBook Toolkit',
-    ogDescription: 'Tải vBook mới nhất cho Android và iOS.',
+    ogDescription: 'Tải vBook mới nhất cho Android, iOS (TestFlight/IPA), Windows, macOS và Linux.',
     ogImage: DEFAULT_OG_IMAGE,
   },
   '/premium': {

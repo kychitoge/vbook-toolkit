@@ -8,7 +8,7 @@ export interface ToolItem {
   author: string;
   route: string;
   category: ToolCategory;
-  iconName: 'HeartHandshake' | 'Palette' | 'BookOpen' | 'Download' | 'Code2' | 'Boxes' | 'Layers' | 'Type' | 'FolderDown';
+  iconName: 'HeartHandshake' | 'Palette' | 'BookOpen' | 'Download' | 'Code2' | 'Boxes' | 'Layers' | 'Type' | 'FolderDown' | 'Library';
   isExternal?: boolean;
   externalUrl?: string;
 }
@@ -134,5 +134,17 @@ export const TOOLS_CONFIG: ToolItem[] = [
     iconName: 'Layers',
     isExternal: true,
     externalUrl: 'https://qt.vbookext.me/collections',
+  },
+  {
+    id: 'opds',
+    title: 'Kho Sách Điện Tử OPDS',
+    tag: 'Thư viện',
+    category: 'other_tools',
+    author: 'vBook Community',
+    description: 'Kho sách điện tử chuẩn OPDS cho vBook. Hướng dẫn kết nối chi tiết tại Discord và diễn đàn vBook.',
+    route: '/opds',
+    iconName: 'Library',
+    isExternal: true,
+    externalUrl: 'https://opds.vbookext.me/',
   },
 ];
