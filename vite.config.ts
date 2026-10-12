@@ -68,12 +68,22 @@ function generateMetaPagesPlugin(): Plugin {
           /<meta property="og:description" content=".*?" \/>/s,
           `<meta property="og:description" content="${ogDescription}" />`
         );
+
+        let ogImageReplacement = `<meta property="og:image" content="${ogImage}" />\n    <meta property="og:url" content="${canonicalUrl}" />`;
+        if (meta.ogImageWidth && meta.ogImageHeight) {
+          ogImageReplacement += `\n    <meta property="og:image:width" content="${meta.ogImageWidth}" />\n    <meta property="og:image:height" content="${meta.ogImageHeight}" />\n    <meta property="og:image:alt" content="${ogTitle}" />`;
+        }
         html = html.replace(
           /<meta property="og:image" content=".*?" \/>/s,
-          `<meta property="og:image" content="${ogImage}" />\n    <meta property="og:url" content="${canonicalUrl}" />`
+          ogImageReplacement
         );
 
         // Thay thế Twitter Tags
+        const twitterCard = meta.twitterCard || 'summary';
+        html = html.replace(
+          /<meta property="twitter:card" content=".*?" \/>/s,
+          `<meta property="twitter:card" content="${twitterCard}" />`
+        );
         html = html.replace(
           /<meta property="twitter:title" content=".*?" \/>/s,
           `<meta property="twitter:title" content="${ogTitle}" />`

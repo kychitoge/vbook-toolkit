@@ -10,7 +10,7 @@ Giao diện được thiết kế theo phong cách phẳng tối giản (**Flat 
 
 | STT | Công cụ | Đường dẫn | Mô tả |
 |:---:|---|:---:|---|
-| 1 | **Tải Ứng Dụng vBook** | `/download` | Tải ứng dụng vBook đa nền tảng: Android (Beta APK & Legacy), iOS (TestFlight & IPA Sideload), Desktop (Windows MSI, macOS DMG, Linux DEB/RPM) và kênh Telegram Tracker. |
+| 1 | **Tải Ứng Dụng vBook** | `/download` | Cổng giới thiệu & tải vBook chính thức: iOS (Apple App Store), Android APK (đồng bộ GitHub Releases tự động theo thời gian thực) và Desktop (Windows, macOS, Linux). |
 | 2 | **Nâng Cấp Premium** | `/premium` | Bảng so sánh quyền lợi Free vs Premium, sinh mã VietQR MB Bank tự động theo chuẩn ngân hàng NAPAS và hỗ trợ qua Discord. |
 | 3 | **Tên Nhiều Màu (Gradient Name)** | `/name-color` | Xem trước nickname chuyển màu động (CSS Linear Gradient), tùy biến mã HEX (lên tới 15 dòng) và tạo mã QR kích hoạt gói Màu / Combo. |
 | 4 | **vBook Rule Tester Web** | `/rule-tester` | Công cụ web soát lỗi cú pháp quy tắc QuickTranslate, thử nghiệm dịch trực tiếp, hỗ trợ Drag & Drop file lớn và xuất file `.txt`. |

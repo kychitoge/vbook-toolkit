@@ -5,12 +5,16 @@ export interface RouteMeta {
   ogTitle?: string;
   ogDescription?: string;
   ogImage?: string;
+  ogImageWidth?: number;
+  ogImageHeight?: number;
   ogType?: string;
+  twitterCard?: 'summary' | 'summary_large_image';
   canonicalUrl?: string;
 }
 
 export const SITE_BASE_URL = 'https://tool.vbookext.me';
 export const DEFAULT_OG_IMAGE = 'https://tool.vbookext.me/icon-64.png';
+export const DOWNLOAD_OG_IMAGE = 'https://tool.vbookext.me/og-download.png';
 
 export const ROUTES_META: Record<string, RouteMeta> = {
   '/': {
@@ -30,8 +34,11 @@ export const ROUTES_META: Record<string, RouteMeta> = {
     keywords:
       'tai vbook, download vbook apk, vbook beta, vbook ipa, vbook ios testflight, vbook desktop, vbook windows msi, vbook macos dmg, vbook linux deb rpm, vbook app',
     ogTitle: 'Tải Ứng Dụng vBook — vBook Toolkit',
-    ogDescription: 'Tải vBook mới nhất cho Android, iOS (TestFlight/IPA), Windows, macOS và Linux.',
-    ogImage: DEFAULT_OG_IMAGE,
+    ogDescription: 'Tải vBook mới nhất cho Android, iOS (TestFlight/IPA), Windows, macOS và Linux. Đọc truyện riêng tư, mượt mà và miễn phí.',
+    ogImage: DOWNLOAD_OG_IMAGE,
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
+    twitterCard: 'summary_large_image',
   },
   '/premium': {
     title: 'Premium | vBook Toolkit',

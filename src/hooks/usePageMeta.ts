@@ -41,8 +41,16 @@ export function usePageMeta(customMeta?: Partial<RouteMeta>) {
     updateMetaTag('property', 'og:description', ogDescription);
     updateMetaTag('property', 'og:url', canonicalUrl);
     updateMetaTag('property', 'og:image', ogImage);
+    if (baseMeta?.ogImageWidth) {
+      updateMetaTag('property', 'og:image:width', String(baseMeta.ogImageWidth));
+    }
+    if (baseMeta?.ogImageHeight) {
+      updateMetaTag('property', 'og:image:height', String(baseMeta.ogImageHeight));
+    }
 
     // 4. Twitter
+    const twitterCard = customMeta?.twitterCard || baseMeta?.twitterCard || 'summary';
+    updateMetaTag('property', 'twitter:card', twitterCard);
     updateMetaTag('property', 'twitter:title', ogTitle);
     updateMetaTag('property', 'twitter:description', ogDescription);
     updateMetaTag('property', 'twitter:url', canonicalUrl);

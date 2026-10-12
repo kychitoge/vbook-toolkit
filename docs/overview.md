@@ -20,7 +20,7 @@ Dự án được xây dựng theo phong cách giao diện phẳng tối giản 
 |---|---|---|---|---|
 | 1 | **Nâng Cấp Premium** | `/premium` (`/donate`) | vBook Community | Bảng so sánh quyền lợi Free vs Premium, sinh mã VietQR MB Bank kích hoạt tự động theo Email và hỗ trợ qua Discord. |
 | 2 | **Tên Nhiều Màu** | `/name-color` | `ngatngay` | Trình tạo hiệu ứng chuyển màu Gradient cho nickname, hỗ trợ xem trước nền sáng/tối và sinh mã chuyển khoản gói Màu (50k) hoặc Combo (100k). |
-| 3 | **Tải Ứng Dụng vBook** | `/download` | vBook Team | Landing Page giới thiệu vBook đa nền tảng: Android (Beta APK & Legacy), iOS (TestFlight & IPA Sideload), Desktop (Windows MSI, macOS DMG, Linux DEB/RPM) và kênh Telegram/Discord. |
+| 3 | **Tải Ứng Dụng vBook** | `/download` | vBook Team | Cổng giới thiệu & tải vBook chính thức: iOS (Apple App Store), Android APK (phân giải động GitHub Releases theo thời gian thực) và Desktop (Windows, macOS, Linux). |
 | 4 | **vBook Rule Tester** | `/rule-tester` | `duongden` | Công cụ web kiểm tra và soát lỗi cú pháp quy tắc QuickTranslate, thử nghiệm dịch trực tiếp, hỗ trợ Drag & Drop file lớn và Xuất file `.txt`. |
 | 5 | **Thử Font & Nền** | `/font-preview` | `duongden` | Không gian thử nghiệm Live Sandbox cho 94 font chữ (kèm font hệ thống) và 96 hình nền đọc truyện, kết nối CDN Cloudflare R2, nạp font/ảnh cá nhân. |
 | 6 | **Hướng Dẫn Sử Dụng** | `/hdsd` | `duongden`, `ngatngay` | Redirect tức thì (302) sang GitBook Hướng dẫn sử dụng vBook chính thức. |
